@@ -2,24 +2,25 @@ import React from "react";
 import Button from "@mui/material/Button";
 
 export const FilterOption = props => {
-    const { options, activeOption, multiSelect, onFilterOptionClick, variant } = props;
+    const { options, activeOption, multiSelect, onFilterOptionClick } = props;
     let filterItems = [];
     options.map(filterItem => {
         const filterOption = (
             <Button
                 sx={{marginRight: 0.5}}
-                variant={variant === "status" ? filterItem : variant}
+                variant="filterBtn"
                 className={`mr-2 mb-2 filter-button ${
                     multiSelect
-                        ? activeOption.includes(filterItem)
+                        ? activeOption.includes(filterItem.label)
                             ? "filter-active"
                             : ""
-                        : activeOption === filterItem
+                        : activeOption === filterItem.label
                         ? "filter-active"
                         : ""
                 }`}
-                onClick={() => onFilterOptionClick(filterItem)}
-            >{filterItem}</Button>
+                startIcon={filterItem.icon}
+                onClick={() => onFilterOptionClick(filterItem.label)}
+            >{filterItem.label}</Button>
         );
         filterItems.push(filterOption);
     });

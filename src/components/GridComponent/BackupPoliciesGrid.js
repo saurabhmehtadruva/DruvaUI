@@ -160,7 +160,7 @@ export default function ToolbarGrid() {
       <GridToolbarContainer>
         <Box className="d-flex align-items-center w-100 px-2">
           <Box sx={{ flexGrow: 1, height: "32px", }} className="d-flex me-5">
-            <Button disabled className="me-2" size="small" variant="outlined">
+            <Button disabled={!selection.length > 0} className="me-2" size="small" variant="outlined">
               Duplicate Policy
             </Button>
           </Box>

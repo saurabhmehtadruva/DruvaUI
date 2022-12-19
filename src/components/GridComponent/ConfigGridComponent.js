@@ -25,7 +25,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
-      status: "Error"
+      status: "Failed"
     },
     {
       id: "13bd2472-012c-5220-bb3c-5a8d7292e066",
@@ -36,7 +36,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
-      status: "Error"
+      status: "Failed"
     },
     {
       id: "d1567bf5-465a-543c-8f3a-9e1f2b0b88f7",
@@ -47,7 +47,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
-      status: "Error"
+      status: "Failed"
     },
     {
       id: "24cff67b-f3a0-5faa-bd4f-70319a7c7c4b",
@@ -58,7 +58,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
-      status: "Error"
+      status: "Failed"
     },
     {
       id: "99e5b6b2-85c3-561d-b3a0-705ef2f8b91c",
@@ -69,7 +69,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
-      status: "Error"
+      status: "Failed"
     },
     {
       id: "9aa9859b-aaf1-5c1f-bcf8-bd9ea3d6538c",
@@ -80,7 +80,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
-      status: "Error"
+      status: "Failed"
     },
     {
       id: "1bb9d24e-55db-52d3-b38e-bf71204ee1d0",
@@ -91,7 +91,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
-      status: "Error"
+      status: "Failed"
     },
     {
       id: "0148cf1a-8cb9-5dd0-851a-75bafd939900",
@@ -102,7 +102,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
-      status: "Error"
+      status: "Failed"
     },
     {
       id: "76220b40-79db-51de-8711-81b4f55f1a3f",
@@ -113,7 +113,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
-      status: "Error"
+      status: "Failed"
     },
   ];
   const [selection, setSelection] = React.useState([]);
@@ -261,7 +261,7 @@ const ConfigGridComponent = (props) => {
 //   }, [props.jStatus]);
 
   const requestFilter = (searchVal, serverIp, status, backup) => {
-    if(searchVal !== "" || (serverIp !== "-1" && serverIp.length > 0) || (status !== "-1" && status.length > 0) || (backup !== -1 && backup !== "")) {
+    if(searchVal !== "" || (serverIp !== "-1" && serverIp.length > 0) || (status !== "-1" && status.length > 0) || (backup !== "-1" && backup !== "")) {
       const searchRows = requestSearch(searchVal);
       const ipRows = filterserverIP(serverIp);
       const statusRows = filterjStatus(status);

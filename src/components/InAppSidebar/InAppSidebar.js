@@ -381,6 +381,7 @@ const InAppSidebar = (props) => {
                 <ListItemText
                   primary="All Vcenters/ESXi hosts"
                   sx={{ display: state["left"] ? "inherit" : "none" }}
+                  className="oui-selectNav"
                 />
               </ListItemButton>
             </ListItem>

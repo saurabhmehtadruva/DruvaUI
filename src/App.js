@@ -280,27 +280,28 @@ function App() {
               {
                 props: {variant: "filterBtn"},
                 style: ({ theme }) => ({
-                  background: "rgba(0, 0, 0, 0.08)",
                   borderRadius: "16px",
-                  color: "rgba(0, 0, 0, 0.87)",
                   fontWeight: 400,
                   fontSize: "13px",
                   lineHeight: "18px",
-                  
-                  '&.filter-active' : {
-                    border: "1px solid #2171B5",
-                    background: "#ffffff",
-                    fontWeight: 600,
-                  },
                   ...(theme.palette.mode === 'light') ? {
+                    color: "rgba(0, 0, 0, 0.87)",
                     background: "rgba(0, 0, 0, 0.08)",
                     '&:hover': {
-                      background: "rgba(0, 0, 0, 0.08)",
+                      background: "rgba(0, 0, 0, 0.12)",
+                    },
+                    '&.filter-active' : {
+                      background: "rgba(0, 0, 0, 0.2)",
                     },
                   } : {
-                    background: "#ffffff",
+                    color: "#FFFFFF",
+                    background: "rgba(255, 255, 255, 0.16)",
                     '&:hover': {
-                      background: "#ffffff",
+                      background: "#383535",
+                    },
+                    '&.filter-active' : {
+                      color: "rgba(0, 0, 0, 0.87)",
+                      background: "#66BB6A",
                     },
                   }
                 }),
@@ -484,6 +485,18 @@ function App() {
                   }),
                 },
                 {
+                  props: { variant: "header3" },
+                  style: ({ theme }) => ({
+                    ...(theme.palette.mode === 'light') ? {
+                      color: "#1D1A1A"
+                    } : {
+                      color: "#D7D7D7"
+                    },
+                    fontWeight: 500,
+                    fontSize: "14px",
+                  }),
+                },
+                {
                   props: { variant: "filter" },
                   style: ({ theme }) => ({
                     ...(theme.palette.mode === 'light') ? {
@@ -506,19 +519,38 @@ function App() {
                       color: "#E6E6E6"
                     },
                   }),
-                }
+                },
+                {
+                  props: { variant: "body3" },
+                  style: ({ theme }) => ({
+
+                    ...(theme.palette.mode === 'light') ? {
+                      color: "#878686",
+                    } : {
+                      color: "#D7D7D7",
+                    },
+                  }),
+                },
+                {
+                  props: { variant: "h2" },
+                  style: ({ theme }) => ({
+
+                    ...(theme.palette.mode === 'light') ? {
+                      color: "#383535",
+                    } : {
+                      color: "#E4E4E4",
+                    },
+                  }),
+                },
               ]
           },
           MuiLink: {
             styleOverrides: {
               root: ({ theme }) => ({
-                ...(theme.palette.mode === 'light') ? {
-                  color: "#3687CB",
+                  color: "#46A8EA",
                 '&:hover': {
-                  color: "#3687CB",
-                },
-                } : {},
-                
+                  color: "#46A8EA",
+                }
               })
             }
           },
@@ -562,6 +594,23 @@ function App() {
               })
             }
           },
+          MuiList: {
+            styleOverrides: {
+              root:  ({ theme }) => ({
+                ...(theme.palette.mode === 'light') ? {
+                  '&.listitem-card .MuiListItem-root' : {
+                    background: "#ffffff",
+                    border: "1px solid #f2f2f2",
+                  }
+                }: {
+                  '&.listitem-card .MuiListItem-root' : {
+                    background: "#2A2727",
+                    border: "none",
+                  }
+                },
+              })
+            }
+          },
           MuiListItem: {
             styleOverrides: {
               root: ({ theme }) => ({
@@ -571,6 +620,10 @@ function App() {
                 },
                 ...(theme.palette.mode === 'light') ? {
                   color: "#6C6A6A",
+                  '& .listitem-card' : {
+                    background: "#ffffff",
+                    border: "1px solid #f2f2f2",
+                  },
                 '&.Mui-selected': {
                   backgroundColor: "#ffffff",
                   color: "#EC873E",
@@ -656,10 +709,14 @@ function App() {
           },
           MuiDivider: {
             styleOverrides: {
-              root: {
-                borderColor: "#E4E4E4",
+              root: ({ theme }) => ({
+                ...(theme.palette.mode === 'light') ? {
+                  borderColor: "#E4E4E4",
+                }: {
+                  borderColor: "#1D1A1A",
+                },
                 opacity: 1,
-              },
+              }),
             },
           },
           MuiStepConnector: {

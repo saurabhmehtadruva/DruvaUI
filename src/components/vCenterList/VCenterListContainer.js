@@ -45,9 +45,6 @@ function VCenterListContainer() {
           <Typography
             variant="h5"
             noWrap
-            sx={{
-              fontSize: "14px",
-            }}
             className="oui-page-header"
           >
             3 vCenters
@@ -55,7 +52,7 @@ function VCenterListContainer() {
           <div
             className="ml-1 mr-1"
             style={{
-              borderLeft: "1px solid #1D1D1D",
+              borderLeft: theme.palette.mode === "light" ? "1px solid #1D1A1A": "1px solid #FFFFFF",
               opacity: "0.3",
               height: "14px",
               margin: "0 8px",
@@ -64,9 +61,6 @@ function VCenterListContainer() {
           <Typography
             variant="h5"
             noWrap
-            sx={{
-              fontSize: "14px",
-            }}
             className="oui-page-header"
           >
             3 Standalone ESXi hosts
@@ -81,13 +75,13 @@ function VCenterListContainer() {
               aria-label="filter"
               id="filter-button"
               disableRipple
-              className="oui-moreButton p-0"
+              className=" p-0"
             >
               <svg
                 style={{
-                  borderLeft: "1px solid #e4e4e4",
-                  borderTop: "1px solid #e4e4e4",
-                  borderBottom: "1px solid #e4e4e4",
+                  borderLeft: theme.palette.mode === "light" ? "1px solid #e4e4e4" : "1px solid #2A2727",
+                  borderTop: theme.palette.mode === "light" ? "1px solid #e4e4e4" : "1px solid #2A2727",
+                  borderBottom: theme.palette.mode === "light" ? "1px solid #e4e4e4" : "1px solid #2A2727",
                   opacity: "0.65",
                 }}
                 width="45"
@@ -96,24 +90,24 @@ function VCenterListContainer() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M0 0H44V40H0V0Z" fill="#F9FAFB" />
+                <path d="M0 0H44V40H0V0Z" fill={theme.palette.mode === "light" ? "#F9FAFB" : "#2A2727"} />
                 <path
                   d="M18.75 21C19.9926 21 21 22.0074 21 23.25V26.75C21 27.9926 19.9926 29 18.75 29H15.25C14.0074 29 13 27.9926 13 26.75V23.25C13 22.0074 14.0074 21 15.25 21H18.75ZM28.75 21C29.9926 21 31 22.0074 31 23.25V26.75C31 27.9926 29.9926 29 28.75 29H25.25C24.0074 29 23 27.9926 23 26.75V23.25C23 22.0074 24.0074 21 25.25 21H28.75ZM18.75 22.5H15.25C14.8358 22.5 14.5 22.8358 14.5 23.25V26.75C14.5 27.1642 14.8358 27.5 15.25 27.5H18.75C19.1642 27.5 19.5 27.1642 19.5 26.75V23.25C19.5 22.8358 19.1642 22.5 18.75 22.5ZM28.75 22.5H25.25C24.8358 22.5 24.5 22.8358 24.5 23.25V26.75C24.5 27.1642 24.8358 27.5 25.25 27.5H28.75C29.1642 27.5 29.5 27.1642 29.5 26.75V23.25C29.5 22.8358 29.1642 22.5 28.75 22.5ZM18.75 11C19.9926 11 21 12.0074 21 13.25V16.75C21 17.9926 19.9926 19 18.75 19H15.25C14.0074 19 13 17.9926 13 16.75V13.25C13 12.0074 14.0074 11 15.25 11H18.75ZM28.75 11C29.9926 11 31 12.0074 31 13.25V16.75C31 17.9926 29.9926 19 28.75 19H25.25C24.0074 19 23 17.9926 23 16.75V13.25C23 12.0074 24.0074 11 25.25 11H28.75ZM18.75 12.5H15.25C14.8358 12.5 14.5 12.8358 14.5 13.25V16.75C14.5 17.1642 14.8358 17.5 15.25 17.5H18.75C19.1642 17.5 19.5 17.1642 19.5 16.75V13.25C19.5 12.8358 19.1642 12.5 18.75 12.5ZM28.75 12.5H25.25C24.8358 12.5 24.5 12.8358 24.5 13.25V16.75C24.5 17.1642 24.8358 17.5 25.25 17.5H28.75C29.1642 17.5 29.5 17.1642 29.5 16.75V13.25C29.5 12.8358 29.1642 12.5 28.75 12.5Z"
-                  fill="#212121"
+                  fill={theme.palette.mode === "light" ? "#212121" : "#F6F6F6"}
                 />
-                <path d="M43.5 0V40H44.5V0H43.5Z" fill="#E4E4E4" />
+                <path d="M43.5 0V40H44.5V0H43.5Z" fill={theme.palette.mode === "light" ? "#E4E4E4": "#2A2727"} />
               </svg>
             </IconButton>
             <IconButton
               aria-label="filter"
               id="filter-button"
               disableRipple
-              className="oui-moreButton p-0"
+              className="p-0"
             >
               <svg
                 style={{
-                  borderTop: "1px solid #e4e4e4",
-                  borderBottom: "1px solid #e4e4e4",
+                  borderTop: theme.palette.mode === "light" ? "1px solid #e4e4e4" : "1px solid #2A2727",
+                  borderBottom: theme.palette.mode === "light" ? "1px solid #e4e4e4" : "1px solid #2A2727",
                 }}
                 width="44"
                 height="40"
@@ -121,13 +115,13 @@ function VCenterListContainer() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M0 0H44V40H0V0Z" fill="white" />
+                <path d="M0 0H44V40H0V0Z" fill={theme.palette.mode === "light" ? "white" : "#1D1A1A"} />
                 <path
                   d="M16.25 11C14.4551 11 13 12.4551 13 14.25V25.75C13 27.5449 14.4551 29 16.25 29H27.75C29.5449 29 31 27.5449 31 25.75V14.25C31 12.4551 29.5449 11 27.75 11H16.25ZM14.5 14.25C14.5 13.2835 15.2835 12.5 16.25 12.5H27.75C28.7165 12.5 29.5 13.2835 29.5 14.25V22H14.5V14.25ZM20 23.5H24V27.5H20V23.5ZM27.75 27.5H25.5V23.5H29.5V25.75C29.5 26.7165 28.7165 27.5 27.75 27.5ZM14.5 25.75V23.5H18.5V27.5H16.25C15.2835 27.5 14.5 26.7165 14.5 25.75Z"
-                  fill="#212121"
+                  fill={theme.palette.mode === "light" ? "#212121" : "#6C6A6A" }
                   fill-opacity="0.6"
                 />
-                <path d="M43.5 0V40H44.5V0H43.5Z" fill="#D0D5DD" />
+                <path d="M43.5 0V40H44.5V0H43.5Z" fill={theme.palette.mode === "light" ? "#D0D5DD" : "#2A2727"} />
               </svg>
             </IconButton>
           </Box>
@@ -149,13 +143,13 @@ function VCenterListContainer() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <rect width="28" height="28" rx="2" fill="white" />
-                  <rect width="28" height="28" rx="2" fill="#F6F6F6" />
+                  <rect width="28" height="28" rx="2" fill={theme.palette.mode === "light" ? "#F6F6F6":"#383535"} />
                   <path
                     d="M11.5 9C11.2239 9 11 9.22386 11 9.5C11 9.77614 11.2239 10 11.5 10H16.5C16.7761 10 17 9.77614 17 9.5C17 9.22386 16.7761 9 16.5 9H11.5ZM11 16.5C11 16.2239 11.2239 16 11.5 16H16.5C16.7761 16 17 16.2239 17 16.5C17 16.7761 16.7761 17 16.5 17H11.5C11.2239 17 11 16.7761 11 16.5ZM11.5 18C11.2239 18 11 18.2239 11 18.5C11 18.7761 11.2239 19 11.5 19H16.5C16.7761 19 17 18.7761 17 18.5C17 18.2239 16.7761 18 16.5 18H11.5ZM9 8.5C9 7.11929 10.1193 6 11.5 6H16.5C17.8807 6 19 7.11929 19 8.5V19.5C19 20.8807 17.8807 22 16.5 22H11.5C10.1193 22 9 20.8807 9 19.5V8.5ZM11.5 7C10.6716 7 10 7.67157 10 8.5V19.5C10 20.3284 10.6716 21 11.5 21H16.5C17.3284 21 18 20.3284 18 19.5V8.5C18 7.67157 17.3284 7 16.5 7H11.5Z"
-                    fill="#505D66"
+                    fill={theme.palette.mode === "light" ? "#505D66" : "#F6F6F6" }
                   />
                 </svg>
-                <Typography variant="h4">
+                <Typography variant="h4" className="ps-2">
                   <Link href="#" underline="none">
                     172.16.20.165
                   </Link>
@@ -181,7 +175,7 @@ function VCenterListContainer() {
                     />
                     <path
                       d="M10.5835 6C9.89314 6 9.3335 5.44036 9.3335 4.75C9.3335 4.05964 9.89314 3.5 10.5835 3.5C11.2739 3.5 11.8335 4.05964 11.8335 4.75C11.8335 5.44036 11.2739 6 10.5835 6ZM10.5835 11.25C9.89314 11.25 9.3335 10.6904 9.3335 10C9.3335 9.30964 9.89314 8.75 10.5835 8.75C11.2739 8.75 11.8335 9.30964 11.8335 10C11.8335 10.6904 11.2739 11.25 10.5835 11.25ZM9.3335 15.25C9.3335 15.9404 9.89314 16.5 10.5835 16.5C11.2739 16.5 11.8335 15.9404 11.8335 15.25C11.8335 14.5596 11.2739 14 10.5835 14C9.89314 14 9.3335 14.5596 9.3335 15.25Z"
-                      fill="#383535"
+                      fill={theme.palette.mode === "light" ? "#383535" : "#E4E4E4" }
                     />
                   </svg>
                 </IconButton>
@@ -318,13 +312,13 @@ function VCenterListContainer() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <rect width="28" height="28" rx="2" fill="white" />
-                  <rect width="28" height="28" rx="2" fill="#F6F6F6" />
+                  <rect width="28" height="28" rx="2" fill={theme.palette.mode === "light" ? "#F6F6F6":"#383535"} />
                   <path
                     d="M11.5 9C11.2239 9 11 9.22386 11 9.5C11 9.77614 11.2239 10 11.5 10H16.5C16.7761 10 17 9.77614 17 9.5C17 9.22386 16.7761 9 16.5 9H11.5ZM11 16.5C11 16.2239 11.2239 16 11.5 16H16.5C16.7761 16 17 16.2239 17 16.5C17 16.7761 16.7761 17 16.5 17H11.5C11.2239 17 11 16.7761 11 16.5ZM11.5 18C11.2239 18 11 18.2239 11 18.5C11 18.7761 11.2239 19 11.5 19H16.5C16.7761 19 17 18.7761 17 18.5C17 18.2239 16.7761 18 16.5 18H11.5ZM9 8.5C9 7.11929 10.1193 6 11.5 6H16.5C17.8807 6 19 7.11929 19 8.5V19.5C19 20.8807 17.8807 22 16.5 22H11.5C10.1193 22 9 20.8807 9 19.5V8.5ZM11.5 7C10.6716 7 10 7.67157 10 8.5V19.5C10 20.3284 10.6716 21 11.5 21H16.5C17.3284 21 18 20.3284 18 19.5V8.5C18 7.67157 17.3284 7 16.5 7H11.5Z"
-                    fill="#505D66"
+                    fill={theme.palette.mode === "light" ? "#505D66" : "#F6F6F6" }
                   />
                 </svg>
-                <Typography variant="h4">
+                <Typography variant="h4" className="ps-2">
                   <Link href="#" underline="none">
                     192.168.54.231
                   </Link>
@@ -350,7 +344,7 @@ function VCenterListContainer() {
                     />
                     <path
                       d="M10.5835 6C9.89314 6 9.3335 5.44036 9.3335 4.75C9.3335 4.05964 9.89314 3.5 10.5835 3.5C11.2739 3.5 11.8335 4.05964 11.8335 4.75C11.8335 5.44036 11.2739 6 10.5835 6ZM10.5835 11.25C9.89314 11.25 9.3335 10.6904 9.3335 10C9.3335 9.30964 9.89314 8.75 10.5835 8.75C11.2739 8.75 11.8335 9.30964 11.8335 10C11.8335 10.6904 11.2739 11.25 10.5835 11.25ZM9.3335 15.25C9.3335 15.9404 9.89314 16.5 10.5835 16.5C11.2739 16.5 11.8335 15.9404 11.8335 15.25C11.8335 14.5596 11.2739 14 10.5835 14C9.89314 14 9.3335 14.5596 9.3335 15.25Z"
-                      fill="#383535"
+                      fill={theme.palette.mode === "light" ? "#383535" : "#E4E4E4" }
                     />
                   </svg>
                 </IconButton>
@@ -488,13 +482,13 @@ function VCenterListContainer() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <rect width="28" height="28" rx="2" fill="white" />
-                  <rect width="28" height="28" rx="2" fill="#F6F6F6" />
+                  <rect width="28" height="28" rx="2" fill={theme.palette.mode === "light" ? "#F6F6F6":"#383535"} />
                   <path
                     d="M11.5 9C11.2239 9 11 9.22386 11 9.5C11 9.77614 11.2239 10 11.5 10H16.5C16.7761 10 17 9.77614 17 9.5C17 9.22386 16.7761 9 16.5 9H11.5ZM11 16.5C11 16.2239 11.2239 16 11.5 16H16.5C16.7761 16 17 16.2239 17 16.5C17 16.7761 16.7761 17 16.5 17H11.5C11.2239 17 11 16.7761 11 16.5ZM11.5 18C11.2239 18 11 18.2239 11 18.5C11 18.7761 11.2239 19 11.5 19H16.5C16.7761 19 17 18.7761 17 18.5C17 18.2239 16.7761 18 16.5 18H11.5ZM9 8.5C9 7.11929 10.1193 6 11.5 6H16.5C17.8807 6 19 7.11929 19 8.5V19.5C19 20.8807 17.8807 22 16.5 22H11.5C10.1193 22 9 20.8807 9 19.5V8.5ZM11.5 7C10.6716 7 10 7.67157 10 8.5V19.5C10 20.3284 10.6716 21 11.5 21H16.5C17.3284 21 18 20.3284 18 19.5V8.5C18 7.67157 17.3284 7 16.5 7H11.5Z"
-                    fill="#505D66"
+                    fill={theme.palette.mode === "light" ? "#505D66" : "#F6F6F6" }
                   />
                 </svg>
-                <Typography variant="h4">
+                <Typography variant="h4" className="ps-2">
                   <Link href="#" underline="none">
                     172.16.20.194
                   </Link>
@@ -520,7 +514,7 @@ function VCenterListContainer() {
                     />
                     <path
                       d="M10.5835 6C9.89314 6 9.3335 5.44036 9.3335 4.75C9.3335 4.05964 9.89314 3.5 10.5835 3.5C11.2739 3.5 11.8335 4.05964 11.8335 4.75C11.8335 5.44036 11.2739 6 10.5835 6ZM10.5835 11.25C9.89314 11.25 9.3335 10.6904 9.3335 10C9.3335 9.30964 9.89314 8.75 10.5835 8.75C11.2739 8.75 11.8335 9.30964 11.8335 10C11.8335 10.6904 11.2739 11.25 10.5835 11.25ZM9.3335 15.25C9.3335 15.9404 9.89314 16.5 10.5835 16.5C11.2739 16.5 11.8335 15.9404 11.8335 15.25C11.8335 14.5596 11.2739 14 10.5835 14C9.89314 14 9.3335 14.5596 9.3335 15.25Z"
-                      fill="#383535"
+                      fill={theme.palette.mode === "light" ? "#383535" : "#E4E4E4" }
                     />
                   </svg>
                 </IconButton>
@@ -599,7 +593,7 @@ function VCenterListContainer() {
                     />
                   </svg>
                   <Typography
-                    variant="body1"
+                    variant="body3"
                     gutterBottom
                     sx={{ marginLeft: "12px" }}
                   >

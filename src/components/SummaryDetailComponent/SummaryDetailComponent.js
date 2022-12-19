@@ -109,7 +109,7 @@ function SummaryDetailComponent() {
               </div>
 
               <Box className=" d-flex">
-                <Link className="pointer" onClick={() => navigate("/")} underline="none">
+                <Link className="pointer" onClick={() => navigate("/configVM")} underline="none">
                   {"ANZ File Servers"}
                 </Link>
               </Box>
@@ -206,7 +206,7 @@ function SummaryDetailComponent() {
                   <div>
                     <FormHelperText>Backup Proxy Pool</FormHelperText>
                   </div>
-                  <Link href="/" underline="none">
+                  <Link href="/configVM" underline="none">
                     Default proxy pool{" "}
                   </Link>
                 </Box>

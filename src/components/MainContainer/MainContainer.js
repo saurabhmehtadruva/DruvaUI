@@ -20,6 +20,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import CardActions from '@mui/material/CardActions';
 import FilterOption from "../common/filterOption";
+import Badge from '@mui/material/Badge';
 
 function MainContainer() {
   const [show, setShow] = React.useState(false);
@@ -30,6 +31,7 @@ function MainContainer() {
   const [ip, setIp] = React.useState([]);
   const [jobStatus, setJobStatus] = React.useState([]);
   const [jobBackup, setJobBackup] = React.useState("");
+  const [appAware, setappAware] = React.useState("");
   const [serverIP, setserverIP] = React.useState([]);
   const [jStatus, setJStatus] = React.useState([]);
   const [jBackup, setJBackup] = React.useState("");
@@ -81,11 +83,45 @@ function MainContainer() {
     },
   ];
 
-  const hypervisorFilterOptions = ["172.16.20.178", "172.16.20.179"];
+  const hypervisorFilterOptions = [{label: "172.16.20.178"}, {label: "172.16.20.179"}];
 
-  const jobStatusFilterOptions = ["Success", "Error", "Successful With Errors"];
+  const jobStatusFilterOptions = [{
+    label: "Success",
+    icon: <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM6.5 11.75L2.75 8L3.8075 6.9425L6.5 9.6275L12.1925 3.935L13.25 5L6.5 11.75Z" fill="#28A745"/>
+    </svg>
+  },
+  {
+    label: "Successful With Errors",
+    icon: <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM6.5 11.75L2.75 8L3.8075 6.9425L6.5 9.6275L12.1925 3.935L13.25 5L6.5 11.75Z" fill="#FFC107"/>
+    </svg>
+  },
+  {
+    label: "Failed",
+    icon: <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 0.5C3.8525 0.5 0.5 3.8525 0.5 8C0.5 12.1475 3.8525 15.5 8 15.5C12.1475 15.5 15.5 12.1475 15.5 8C15.5 3.8525 12.1475 0.5 8 0.5ZM11.75 10.6925L10.6925 11.75L8 9.0575L5.3075 11.75L4.25 10.6925L6.9425 8L4.25 5.3075L5.3075 4.25L8 6.9425L10.6925 4.25L11.75 5.3075L9.0575 8L11.75 10.6925Z" fill="#DC3545"/>
+    </svg>,
+  },
+  {
+    label: "Never Backed Up",
+    icon: <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM8.75 11.75H7.25V10.25H8.75V11.75ZM8.75 8.75H7.25V4.25H8.75V8.75Z" fill="white"/>
+    <path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM8.75 11.75H7.25V10.25H8.75V11.75ZM8.75 8.75H7.25V4.25H8.75V8.75Z" fill="#6591F5"/>
+    </svg>,
+  },
+    {
+    label: "Backup window expired",
+    icon: 
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM8.75 11.75H7.25V10.25H8.75V11.75ZM8.75 8.75H7.25V4.25H8.75V8.75Z" fill="white"/>
+<path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM8.75 11.75H7.25V10.25H8.75V11.75ZM8.75 8.75H7.25V4.25H8.75V8.75Z" fill="#6591F5"/>
+</svg>
+  }];
 
-  const jobBackupFilterOptions = ["Enable", "Disable"];
+  const jobBackupFilterOptions = [{label: "Enable"}, {label: "Disable"}];
+
+  const appAwareFilterOptions = [{label: "Enable"}, {label: "Disable"}];
 
   const open = Boolean(filterOpen);
 
@@ -113,6 +149,14 @@ const onJobBackupFilterClick = type => {
   }
 };
 
+const onAppAwareFilterClick = type => {
+  if (appAware.includes(type)) {
+    setappAware("");
+  } else {
+    setappAware(type);
+  }
+}
+
 const handleFilterApply = () => {
   setserverIP(ip && ip.length ? ip : "-1");
   setJStatus(jobStatus && jobStatus.length ? jobStatus : "-1");
@@ -127,6 +171,7 @@ const resetFilters = () => {
   setJobStatus([]);
   setJobBackup("");
   setJBackup("");
+  setappAware("");
   handleFilterClose();
 };
 
@@ -143,6 +188,8 @@ const resetFilters = () => {
       }, 100);
     }
   };
+
+  const filterCount = (serverIP.length > 0 && serverIP !== "-1" ? 1 : 0) + (jStatus.length > 0 && jStatus !== "-1" ? 1 : 0) + (jBackup === "" || jBackup === "-1" ? 0 : 1);
 
   return (
     <div style={{ width: "100%", padding: "0 24px" }}>
@@ -301,7 +348,8 @@ const resetFilters = () => {
           )} */}
 
           <Box>
-            <IconButton
+          <Badge color="primary" badgeContent={filterCount} overlap="circular">
+          <IconButton
               aria-label="filter"
               id="filter-button"
               disableRipple
@@ -325,6 +373,8 @@ const resetFilters = () => {
                 />
               </svg>
             </IconButton>
+            </Badge>
+            
             {/* <Filters
               id="filter"
               anchorEl={filterOpen}
@@ -341,7 +391,7 @@ const resetFilters = () => {
         horizontal: "right",
       }}
     >
-      <Card sx={{width: 395}}>
+      <Card sx={{width: 460}}>
         <CardContent>
         <Typography variant="filterHeader">Filters</Typography>
           {/* {filterData.map((obj) => (
@@ -355,44 +405,54 @@ const resetFilters = () => {
             </Box>
           ))} */}
           <Box className="d-flex mt-2" sx={{flexDirection: 'column'}}>
-          <Typography variant="filter" className="mb-2">Hypervisor</Typography>
+          <Typography variant="filter" className="mb-1">Hypervisor</Typography>
           <Box>
           <FilterOption
             multiSelect
-            variant="filterBtn"
             options={hypervisorFilterOptions}
             activeOption={ip}
             onFilterOptionClick={onIpFilterClick}
             />
           </Box>
-          <Typography variant="filter" className="mb-2">Last Job Status</Typography>
+          <Typography variant="filter" className="mb-1 mt-3">Last Job Status</Typography>
           <Box>
           <FilterOption
             multiSelect
-            variant="status"
             options={jobStatusFilterOptions}
             activeOption={jobStatus}
             onFilterOptionClick={onJobStatusFilterClick}
             />
           </Box>
-          <Typography variant="filter" className="mb-2">Backup</Typography>
+          <Typography variant="filter" className="mb-1 mt-3">Backup</Typography>
           <Box>
           <FilterOption
-            variant="filterBtn"
             options={jobBackupFilterOptions}
             activeOption={jobBackup}
             onFilterOptionClick={onJobBackupFilterClick}
             />
           </Box>
-          
+          <Typography variant="filter" className="mb-1 mt-3">App-aware Backups</Typography>
+          <Box>
+          <FilterOption
+            options={appAwareFilterOptions}
+            activeOption={appAware}
+            onFilterOptionClick={onAppAwareFilterClick}
+            />
+          </Box>
           </Box>
         </CardContent>
         <CardActions>
-            <Box className="d-flex w-100 mt-2" sx={{justifyContent: 'flex-end'}}>
-            <Button className="me-2" size="small" variant="outlined" onClick={resetFilters}>
+            <Box className="d-flex w-100 mt-2 mb-2" sx={{justifyContent: 'flex-end'}}>
+            <Button className="me-2" size="small" variant="outlined" startIcon={
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.397052 0.553789L0.46967 0.46967C0.735936 0.203403 1.1526 0.179197 1.44621 0.397052L1.53033 0.46967L6 4.939L10.4697 0.46967C10.7626 0.176777 11.2374 0.176777 11.5303 0.46967C11.8232 0.762563 11.8232 1.23744 11.5303 1.53033L7.061 6L11.5303 10.4697C11.7966 10.7359 11.8208 11.1526 11.6029 11.4462L11.5303 11.5303C11.2641 11.7966 10.8474 11.8208 10.5538 11.6029L10.4697 11.5303L6 7.061L1.53033 11.5303C1.23744 11.8232 0.762563 11.8232 0.46967 11.5303C0.176777 11.2374 0.176777 10.7626 0.46967 10.4697L4.939 6L0.46967 1.53033C0.203403 1.26406 0.179197 0.8474 0.397052 0.553789L0.46967 0.46967L0.397052 0.553789Z" fill="white"></path><path d="M0.397052 0.553789L0.46967 0.46967C0.735936 0.203403 1.1526 0.179197 1.44621 0.397052L1.53033 0.46967L6 4.939L10.4697 0.46967C10.7626 0.176777 11.2374 0.176777 11.5303 0.46967C11.8232 0.762563 11.8232 1.23744 11.5303 1.53033L7.061 6L11.5303 10.4697C11.7966 10.7359 11.8208 11.1526 11.6029 11.4462L11.5303 11.5303C11.2641 11.7966 10.8474 11.8208 10.5538 11.6029L10.4697 11.5303L6 7.061L1.53033 11.5303C1.23744 11.8232 0.762563 11.8232 0.46967 11.5303C0.176777 11.2374 0.176777 10.7626 0.46967 10.4697L4.939 6L0.46967 1.53033C0.203403 1.26406 0.179197 0.8474 0.397052 0.553789L0.46967 0.46967L0.397052 0.553789Z" fill={theme.palette.mode === "light" ? "#1D1A1A" :"#D7D7D7"}></path></svg>
+            } onClick={resetFilters}>
             Reset
             </Button>
-        <Button className="me-2" variant="contained" size="small" onClick={handleFilterApply}>
+        <Button className="me-2" variant="contained" size="small" startIcon={
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 4.5C7.5 4.22386 7.27614 4 7 4C6.72386 4 6.5 4.22386 6.5 4.5V6.5H4.5C4.22386 6.5 4 6.72386 4 7C4 7.27614 4.22386 7.5 4.5 7.5H6.5V9.5C6.5 9.77614 6.72386 10 7 10C7.27614 10 7.5 9.77614 7.5 9.5V7.5H9.5C9.77614 7.5 10 7.27614 10 7C10 6.72386 9.77614 6.5 9.5 6.5H7.5V4.5ZM2.5 0C1.11929 0 0 1.11929 0 2.5V11.5C0 12.8807 1.11929 14 2.5 14H11.5C12.8807 14 14 12.8807 14 11.5V2.5C14 1.11929 12.8807 0 11.5 0H2.5ZM1 2.5C1 1.67157 1.67157 1 2.5 1H11.5C12.3284 1 13 1.67157 13 2.5V11.5C13 12.3284 12.3284 13 11.5 13H2.5C1.67157 13 1 12.3284 1 11.5V2.5ZM5.50027 15.9998C4.54662 15.9998 3.68205 15.6184 3.05078 14.9998H12.5003C13.881 14.9998 15.0003 13.8805 15.0003 12.4998V3.05029C15.6189 3.68156 16.0003 4.54613 16.0003 5.49978V12.4998C16.0003 14.4328 14.4333 15.9998 12.5003 15.9998H5.50027Z" fill="#383535"/>
+          </svg>
+        } onClick={handleFilterApply}>
         Apply
             </Button>
             </Box>

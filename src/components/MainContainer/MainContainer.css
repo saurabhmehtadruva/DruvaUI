@@ -66,7 +66,11 @@ html .oui-searchBox .MuiOutlinedInput-root {
 }
 
 .MuiAutocomplete-root.slide {
-  transition: width 300ms ease-out;
+  transition: width 300ms ease-in;
+}
+
+.MuiAutocomplete-root.initial {
+  transition: none;
 }
 
 .MuiAutocomplete-root.initial .MuiOutlinedInput-notchedOutline {
