@@ -22,7 +22,7 @@ const filter = (props) => {
         horizontal: "right",
       }}
     >
-      <Card>
+      <Card sx={{width: 375}}>
         <CardContent>
         <Typography variant="filterHeader">Filters</Typography>
           {filterData.map((obj) => (

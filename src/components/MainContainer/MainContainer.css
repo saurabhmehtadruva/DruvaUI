@@ -65,8 +65,8 @@ html .oui-searchBox .MuiOutlinedInput-root {
   color: #383535 !important;
 }
 
-.MuiAutocomplete-root {
-  transition: width 500ms ease-out;
+.MuiAutocomplete-root.slide {
+  transition: width 300ms ease-out;
 }
 
 .MuiAutocomplete-root.initial .MuiOutlinedInput-notchedOutline {
@@ -79,4 +79,8 @@ html .oui-searchBox .MuiOutlinedInput-root {
 
 .MuiAutocomplete-root.initial input {
   opacity: 0 !important;
+}
+
+html .oui-SearchIcon:hover {
+  background-color: transparent;
 }

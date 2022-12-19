@@ -286,36 +286,79 @@ function App() {
                   fontWeight: 400,
                   fontSize: "13px",
                   lineHeight: "18px",
-                  '&:hover': {
+                  
+                  '&.filter-active' : {
+                    border: "1px solid #2171B5",
+                    background: "#ffffff",
+                    fontWeight: 600,
+                  },
+                  ...(theme.palette.mode === 'light') ? {
                     background: "rgba(0, 0, 0, 0.08)",
+                    '&:hover': {
+                      background: "rgba(0, 0, 0, 0.08)",
+                    },
+                  } : {
+                    background: "#ffffff",
+                    '&:hover': {
+                      background: "#ffffff",
+                    },
                   }
                 }),
               },
               {
                 props: {variant: "Success"},
                 style: ({ theme }) => ({
-                  background: "#28A745",
+                  background: "#1D935C",
                   borderRadius: "16px",
                   color: "#ffffff",
                   fontWeight: 400,
                   fontSize: "13px",
                   lineHeight: "18px",
                   '&:hover': {
-                    background: "#28A745",
+                    background: "#1D935C",
+                  },
+                  '&.filter-active' : {
+                    border: "1px solid #1D935C",
+                    background: "#73C686",
+                    fontWeight: 600,
                   }
                 }),
               },
               {
                 props: {variant: "Error"},
                 style: ({ theme }) => ({
-                  background: "#D32F2F",
+                  background: "#D12F22",
                   borderRadius: "16px",
                   color: "#ffffff",
                   fontWeight: 400,
                   fontSize: "13px",
                   lineHeight: "18px",
                   '&:hover': {
-                    background: "#D32F2F",
+                    background: "#D12F22",
+                  },
+                  '&.filter-active' : {
+                    border: "1px solid #D12F22",
+                    background: "#E96D78",
+                    fontWeight: 600,
+                  }
+                }),
+              },
+              {
+                props: {variant: "Successful With Errors"},
+                style: ({ theme }) => ({
+                  background: "#C8A529",
+                  borderRadius: "16px",
+                  color: "#ffffff",
+                  fontWeight: 400,
+                  fontSize: "13px",
+                  lineHeight: "18px",
+                  '&:hover': {
+                    background: "#C8A529",
+                  },
+                  '&.filter-active' : {
+                    border: "1px solid #C8A529",
+                    background: "#EECB62",
+                    fontWeight: 600,
                   }
                 }),
               }
@@ -919,7 +962,8 @@ function App() {
           
               <Routes>
                 <Route exact key="1" path="/" element={<MainContainer />} />
-                <Route exact key="2" path="/configVM" element={<BackupProxyContainer />} />
+                <Route exact key="7" path="/configVM" element={<MainContainer />} />
+                <Route exact key="2" path="/backup-proxy" element={<BackupProxyContainer />} />
                 <Route exact key="3" path="/backup-policies" element={<BackupPoliciesContainer />} />
                 <Route exact key="4" path="text" element={<TypographyContainer />} />
                 <Route exact key="5" path="/detail/:detailID" element={<DetailComponent />} />

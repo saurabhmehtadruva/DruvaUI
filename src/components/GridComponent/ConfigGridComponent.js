@@ -25,6 +25,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
+      status: "Error"
     },
     {
       id: "13bd2472-012c-5220-bb3c-5a8d7292e066",
@@ -35,6 +36,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
+      status: "Error"
     },
     {
       id: "d1567bf5-465a-543c-8f3a-9e1f2b0b88f7",
@@ -45,6 +47,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
+      status: "Error"
     },
     {
       id: "24cff67b-f3a0-5faa-bd4f-70319a7c7c4b",
@@ -55,6 +58,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
+      status: "Error"
     },
     {
       id: "99e5b6b2-85c3-561d-b3a0-705ef2f8b91c",
@@ -65,6 +69,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
+      status: "Error"
     },
     {
       id: "9aa9859b-aaf1-5c1f-bcf8-bd9ea3d6538c",
@@ -75,6 +80,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
+      status: "Error"
     },
     {
       id: "1bb9d24e-55db-52d3-b38e-bf71204ee1d0",
@@ -85,6 +91,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
+      status: "Error"
     },
     {
       id: "0148cf1a-8cb9-5dd0-851a-75bafd939900",
@@ -95,6 +102,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
+      status: "Error"
     },
     {
       id: "76220b40-79db-51de-8711-81b4f55f1a3f",
@@ -105,6 +113,7 @@ const ConfigGridComponent = (props) => {
       pool: "Enable",
       phoenix: "Disable",
       vcenter: "310 days ago",
+      status: "Error"
     },
   ];
   const [selection, setSelection] = React.useState([]);
@@ -238,18 +247,78 @@ const ConfigGridComponent = (props) => {
       flex: 0,
     },
   ];
+
   React.useEffect(() => {
-    requestSearch(props.searchValue);
-  }, [props.searchValue]);
-  const requestSearch = (searchValue) => {
-    if (searchValue !== "") {
-      const filteredRows = rows.filter((row) => {
-        return row.bp.includes(searchValue);
-      });
-      setRows(filteredRows);
+    requestFilter(props.searchValue,props.serverIP,props.jStatus,props.jBackup);
+  }, [props.searchValue, props.serverIP, props.jStatus, props.jBackup]);
+
+// React.useEffect(() => {
+//     filterserverIP(props.serverIP);
+//   }, [props.serverIP]);
+
+//   React.useEffect(() => {
+//     filterjStatus(props.jStatus);
+//   }, [props.jStatus]);
+
+  const requestFilter = (searchVal, serverIp, status, backup) => {
+    if(searchVal !== "" || (serverIp !== "-1" && serverIp.length > 0) || (status !== "-1" && status.length > 0) || (backup !== -1 && backup !== "")) {
+      const searchRows = requestSearch(searchVal);
+      const ipRows = filterserverIP(serverIp);
+      const statusRows = filterjStatus(status);
+      const backupRows = filterbackup(backup);
+      const mergeRow12 = arrayUnique(searchRows.concat(ipRows)); 
+      const merge3 = arrayUnique(mergeRow12.concat(statusRows)); 
+      const finalRows = arrayUnique(merge3.concat(backupRows)); 
+      setRows(finalRows);
     } else {
       setRows(dataRows);
     }
+  };
+
+  const arrayUnique = (array) => {
+    var a = array.concat();
+    for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+            if(a[i] === a[j])
+                a.splice(j--, 1);
+        }
+    }
+
+    return a;
+}
+
+  const filterjStatus = (status) => {
+      const filteredRows = dataRows.filter((row) => {
+        return status.includes(row.status);
+      });
+      return (filteredRows);
+  }
+
+  const filterserverIP = (filterVal) => {
+      const filteredRows = dataRows.filter((row) => {
+        return filterVal.includes(row.version);
+      });
+      return (filteredRows);
+  };
+
+  const filterbackup = (val) => {
+    if(val !== "") {
+    const filteredRows = dataRows.filter((row) => {
+      return row.pool.includes(val);
+    });
+    return (filteredRows);
+  }
+  return [];
+};
+
+  const requestSearch = (searchValue) => {
+    if(searchValue !== "") {
+      const filteredRows = dataRows.filter((row) => {
+        return row.bp.includes(searchValue);
+      });
+      return filteredRows;
+    }
+      return [];
   };
   const theme = useTheme();
   const customToolBar = () => {

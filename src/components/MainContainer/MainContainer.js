@@ -13,6 +13,13 @@ import SearchSVG from "../../images/search.svg";
 import { useTheme } from "@mui/material/styles";
 import Filters from "../common/filter";
 import Collapse from "@mui/material/Collapse";
+import Popover from "@mui/material/Popover";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import CardActions from '@mui/material/CardActions';
+import FilterOption from "../common/filterOption";
 
 function MainContainer() {
   const [show, setShow] = React.useState(false);
@@ -20,6 +27,12 @@ function MainContainer() {
   const [tfValue, setTfValue] = React.useState("");
   const [searchValue, setSearchValue] = React.useState("");
   const [filterOpen, setFilterOpen] = React.useState(null);
+  const [ip, setIp] = React.useState([]);
+  const [jobStatus, setJobStatus] = React.useState([]);
+  const [jobBackup, setJobBackup] = React.useState("");
+  const [serverIP, setserverIP] = React.useState([]);
+  const [jStatus, setJStatus] = React.useState([]);
+  const [jBackup, setJBackup] = React.useState("");
 
   useEffect(() => {}, []);
 
@@ -59,7 +72,7 @@ function MainContainer() {
     },
     {
       header: "Status",
-      values: ["Success", "Error"],
+      values: ["Success", "Error", "Successful With Errors"],
     },
     {
       header: "Backup",
@@ -67,6 +80,55 @@ function MainContainer() {
       Selection: "Boolean",
     },
   ];
+
+  const hypervisorFilterOptions = ["172.16.20.178", "172.16.20.179"];
+
+  const jobStatusFilterOptions = ["Success", "Error", "Successful With Errors"];
+
+  const jobBackupFilterOptions = ["Enable", "Disable"];
+
+  const open = Boolean(filterOpen);
+
+  const onIpFilterClick = jobtype => {
+    if (ip.includes(jobtype)) {
+        setIp(ip.filter(item => item !== jobtype));
+    } else {
+        setIp(prevState => [...prevState, jobtype]);
+    }
+};
+
+const onJobStatusFilterClick = jobtype => {
+  if (jobStatus.includes(jobtype)) {
+      setJobStatus(jobStatus.filter(item => item !== jobtype));
+  } else {
+    setJobStatus(prevState => [...prevState, jobtype]);
+  }
+};
+
+const onJobBackupFilterClick = type => {
+  if (jobBackup.includes(type)) {
+    setJobBackup("");
+  } else {
+    setJobBackup(type);
+  }
+};
+
+const handleFilterApply = () => {
+  setserverIP(ip && ip.length ? ip : "-1");
+  setJStatus(jobStatus && jobStatus.length ? jobStatus : "-1");
+  setJBackup(jobBackup ? jobBackup : '-1');
+  handleFilterClose();
+};
+
+const resetFilters = () => {
+  setserverIP([]);
+  setIp([]);
+  setJStatus([]);
+  setJobStatus([]);
+  setJobBackup("");
+  setJBackup("");
+  handleFilterClose();
+};
 
   const onFocusSearch = () => {
     setShow(true);
@@ -78,7 +140,7 @@ function MainContainer() {
       setShow((prev) => !prev);
       setTimeout(() => {
         setSwitchClass(false);
-      }, 400);
+      }, 100);
     }
   };
 
@@ -108,20 +170,18 @@ function MainContainer() {
           className="d-flex align-items-center mb-2"
         >
           <Box>
-            <span>{show}</span>
             <Autocomplete
               freeSolo
               disableClearable
               id="free-solo-2-demo"
               options={searchData}
               sx={{ width: show ? 250 : 96 }}
-              className={switchClass ? "" : "initial"}
-              onFocus={() => setShow(true)}
+              className={switchClass ? "slide" : "initial"}
               onChange={(value) => handleSearch(value.target.innerText)}
               value={tfValue}
               renderInput={(params) => (
                 <TextField
-                  autoFocus
+                  autoFocus = {show}
                   variant="outlined"
                   onBlur={() => onBlurSearch()}
                   className="oui-searchBox"
@@ -185,10 +245,10 @@ function MainContainer() {
                         )}
                         <IconButton
                           sx={{
-                            paddingRight: 0,
                             height: "36px",
                             width: "36px",
                           }}
+                          className={switchClass ? "oui-SearchIcon" : ""}
                           onClick={onFocusSearch}
                         >
                           <svg
@@ -240,7 +300,7 @@ function MainContainer() {
           </Box>
           )} */}
 
-          <Box className="ps-2">
+          <Box>
             <IconButton
               aria-label="filter"
               id="filter-button"
@@ -265,16 +325,84 @@ function MainContainer() {
                 />
               </svg>
             </IconButton>
-            <Filters
+            {/* <Filters
               id="filter"
               anchorEl={filterOpen}
               handleClose={handleFilterClose}
               filterData={filterData}
+            /> */}
+             <Popover
+      id="filter"
+      open={open}
+      anchorEl={filterOpen}
+      onClose={handleFilterClose}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "right",
+      }}
+    >
+      <Card sx={{width: 395}}>
+        <CardContent>
+        <Typography variant="filterHeader">Filters</Typography>
+          {/* {filterData.map((obj) => (
+            <Box className="d-flex mt-2" sx={{flexDirection: 'column'}}>
+              <Typography variant="filter" className="mb-2">{obj.header}</Typography>
+              <Box>
+                {obj.values.map((val) => (
+                  <Button variant={obj.header === "Status" ? val : "filterBtn"} sx={{marginRight: 0.5}}>{val}</Button>
+                ))}
+              </Box>
+            </Box>
+          ))} */}
+          <Box className="d-flex mt-2" sx={{flexDirection: 'column'}}>
+          <Typography variant="filter" className="mb-2">Hypervisor</Typography>
+          <Box>
+          <FilterOption
+            multiSelect
+            variant="filterBtn"
+            options={hypervisorFilterOptions}
+            activeOption={ip}
+            onFilterOptionClick={onIpFilterClick}
             />
+          </Box>
+          <Typography variant="filter" className="mb-2">Last Job Status</Typography>
+          <Box>
+          <FilterOption
+            multiSelect
+            variant="status"
+            options={jobStatusFilterOptions}
+            activeOption={jobStatus}
+            onFilterOptionClick={onJobStatusFilterClick}
+            />
+          </Box>
+          <Typography variant="filter" className="mb-2">Backup</Typography>
+          <Box>
+          <FilterOption
+            variant="filterBtn"
+            options={jobBackupFilterOptions}
+            activeOption={jobBackup}
+            onFilterOptionClick={onJobBackupFilterClick}
+            />
+          </Box>
+          
+          </Box>
+        </CardContent>
+        <CardActions>
+            <Box className="d-flex w-100 mt-2" sx={{justifyContent: 'flex-end'}}>
+            <Button className="me-2" size="small" variant="outlined" onClick={resetFilters}>
+            Reset
+            </Button>
+        <Button className="me-2" variant="contained" size="small" onClick={handleFilterApply}>
+        Apply
+            </Button>
+            </Box>
+    </CardActions>
+      </Card>
+    </Popover>
           </Box>
         </Box>
         <div style={{ height: " calc(100vh - 181px)" }}>
-          <ConfigGridComponent searchValue={searchValue} />
+          <ConfigGridComponent searchValue={searchValue} serverIP={serverIP} jStatus={jStatus} jBackup={jBackup} />
         </div>
       </Box>
     </div>
