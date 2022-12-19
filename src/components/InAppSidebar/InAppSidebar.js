@@ -35,7 +35,7 @@ const InAppSidebar = (props) => {
     bottom: false,
     right: false,
   });
-  const [selectedNav, setSelectedNav] = React.useState(1);
+  const [selectedNav, setSelectedNav] = React.useState(3);
   const [vcenterHost, setVcenterHost] = React.useState("192.162.1.58");
   const toggleDrawer = (anchor, open) => (event) => {
     if (

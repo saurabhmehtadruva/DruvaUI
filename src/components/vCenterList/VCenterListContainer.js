@@ -1,12 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import AddSVG from "../../images/Add.svg";
-import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
 import Grid from "@material-ui/core/Grid";
@@ -16,7 +12,7 @@ import "./VCenterListContainer.css";
 import { useTheme } from "@mui/material/styles";
 
 function VCenterListContainer() {
-  useEffect(() => {}, []);
+  const theme = useTheme();
 
   return (
     <div style={{ width: "100%", padding: "0 24px" }}>
@@ -199,46 +195,29 @@ function VCenterListContainer() {
                 xs={3}
                 direction="column"
               >
-                <Box
-                  className="d-flex align-items-center"
-                  sx={{ marginLeft: "24px" }}
-                >
+                <div style={{ margin: "0 28px" }}>
+                  <Typography variant="h2" gutterBottom>
+                    <Link href="#" underline="none">
+                      19
+                    </Link>
+                    /28
+                  </Typography>
+                  <Typography variant="body3" gutterBottom>
+                    Backup Enabled VMs
+                  </Typography>
                   <svg
-                    width="88"
-                    height="86"
-                    viewBox="0 0 88 86"
+                    width="206"
+                    height="17"
+                    viewBox="0 0 206 17"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      d="M43.9922 0C67.7404 0 86.9922 19.2518 86.9922 43C86.9922 66.7482 67.7404 86 43.9922 86C20.2439 86 0.992188 66.7482 0.992188 43C0.992188 19.2518 20.2439 0 43.9922 0ZM43.9922 79.98C64.4157 79.98 80.9722 63.4235 80.9722 43C80.9722 22.5765 64.4157 6.02 43.9922 6.02C23.5687 6.02 7.01219 22.5765 7.01219 43C7.01219 63.4235 23.5687 79.98 43.9922 79.98Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M43.9922 0C67.7404 0 86.9922 19.2518 86.9922 43C86.9922 66.7482 67.7404 86 43.9922 86C20.2439 86 0.992188 66.7482 0.992188 43C0.992188 19.2518 20.2439 0 43.9922 0ZM43.9922 79.98C64.4157 79.98 80.9722 63.4235 80.9722 43C80.9722 22.5765 64.4157 6.02 43.9922 6.02C23.5687 6.02 7.01219 22.5765 7.01219 43C7.01219 63.4235 23.5687 79.98 43.9922 79.98Z"
-                      fill="#E4E4E4"
-                    />
-                    <path
-                      d="M43.9922 0C51.9223 0 59.6981 2.19298 66.4596 6.33647C73.2212 10.48 78.7052 16.4126 82.3055 23.4784C85.9057 30.5442 87.4818 38.468 86.8596 46.3737C86.2374 54.2795 83.4412 61.8591 78.7799 68.2748C74.1187 74.6904 67.7741 79.6921 60.4476 82.7268C53.1211 85.7616 45.098 86.7111 37.2655 85.4706C29.433 84.23 22.0961 80.8477 16.0659 75.6975C10.0358 70.5472 5.54731 63.8298 3.09676 56.2877L8.82212 54.4275C10.9296 60.9136 14.7897 66.6906 19.9756 71.1198C25.1615 75.549 31.4713 78.4578 38.2072 79.5247C44.9432 80.5916 51.843 79.7749 58.1438 77.1651C64.4446 74.5552 69.901 70.2537 73.9096 64.7363C77.9183 59.2189 80.3231 52.7003 80.8582 45.9014C81.3933 39.1025 80.0378 32.288 76.9416 26.2114C73.8454 20.1348 69.1291 15.0328 63.3142 11.4694C57.4992 7.90596 50.8121 6.02 43.9922 6.02V0Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M43.9922 0C51.9223 0 59.6981 2.19298 66.4596 6.33647C73.2212 10.48 78.7052 16.4126 82.3055 23.4784C85.9057 30.5442 87.4818 38.468 86.8596 46.3737C86.2374 54.2795 83.4412 61.8591 78.7799 68.2748C74.1187 74.6904 67.7741 79.6921 60.4476 82.7268C53.1211 85.7616 45.098 86.7111 37.2655 85.4706C29.433 84.23 22.0961 80.8477 16.0659 75.6975C10.0358 70.5472 5.54731 63.8298 3.09676 56.2877L8.82212 54.4275C10.9296 60.9136 14.7897 66.6906 19.9756 71.1198C25.1615 75.549 31.4713 78.4578 38.2072 79.5247C44.9432 80.5916 51.843 79.7749 58.1438 77.1651C64.4446 74.5552 69.901 70.2537 73.9096 64.7363C77.9183 59.2189 80.3231 52.7003 80.8582 45.9014C81.3933 39.1025 80.0378 32.288 76.9416 26.2114C73.8454 20.1348 69.1291 15.0328 63.3142 11.4694C57.4992 7.90596 50.8121 6.02 43.9922 6.02V0Z"
-                      fill="#8E6EF2"
-                    />
+                    <rect width="206" height="17" rx="2" fill="white" />
+                    <rect width="206" height="17" rx="2" fill="#E4E4E4" />
+                    <rect width="82" height="17" rx="2" fill="white" />
+                    <rect width="82" height="17" rx="2" fill="#8E6EF2" />
                   </svg>
-                  <div style={{ marginLeft: "16px" }}>
-                    <Typography variant="h2">
-                      <Link href="#" underline="none">
-                        19
-                      </Link>
-                      /28
-                    </Typography>
-                    <Typography variant="body3" gutterBottom>
-                      Backup Enabled VMs
-                    </Typography>
-                  </div>
-                </Box>
+                </div>
               </Grid>
               <Grid
                 className="align-items-start"
@@ -324,7 +303,7 @@ function VCenterListContainer() {
             </Grid>
           </div>
         </ListItem>
-        <ListItem>
+        <ListItem sx={{}}>
           <div className="w-100">
             <Box className="d-flex align-items-center w-100 mb-2">
               <Box
@@ -385,47 +364,29 @@ function VCenterListContainer() {
                 xs={3}
                 direction="column"
               >
-                <Box
-                  className="d-flex align-items-center"
-                  sx={{ marginLeft: "24px" }}
-                >
+                <div style={{ margin: "0 28px" }}>
+                  <Typography variant="h2" gutterBottom>
+                    <Link href="#" underline="none">
+                      6
+                    </Link>
+                    /28
+                  </Typography>
+                  <Typography variant="body3" gutterBottom>
+                    Backup Enabled VMs
+                  </Typography>
                   <svg
-                    width="88"
-                    height="86"
-                    viewBox="0 0 88 86"
+                    width="206"
+                    height="17"
+                    viewBox="0 0 206 17"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      d="M43.9922 0C67.7404 0 86.9922 19.2518 86.9922 43C86.9922 66.7482 67.7404 86 43.9922 86C20.2439 86 0.992188 66.7482 0.992188 43C0.992188 19.2518 20.2439 0 43.9922 0ZM43.9922 79.98C64.4157 79.98 80.9722 63.4235 80.9722 43C80.9722 22.5765 64.4157 6.02 43.9922 6.02C23.5687 6.02 7.01219 22.5765 7.01219 43C7.01219 63.4235 23.5687 79.98 43.9922 79.98Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M43.9922 0C67.7404 0 86.9922 19.2518 86.9922 43C86.9922 66.7482 67.7404 86 43.9922 86C20.2439 86 0.992188 66.7482 0.992188 43C0.992188 19.2518 20.2439 0 43.9922 0ZM43.9922 79.98C64.4157 79.98 80.9722 63.4235 80.9722 43C80.9722 22.5765 64.4157 6.02 43.9922 6.02C23.5687 6.02 7.01219 22.5765 7.01219 43C7.01219 63.4235 23.5687 79.98 43.9922 79.98Z"
-                      fill="#E4E4E4"
-                    />
-                    <path
-                      d="M43.9922 0C53.0729 0 61.9205 2.87476 69.267 8.21227C76.6134 13.5498 82.0815 21.076 84.8876 29.7123L79.1623 31.5726C76.749 24.1454 72.0464 17.6728 65.7285 13.0826C59.4105 8.49229 51.8016 6.02 43.9922 6.02V0Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M43.9922 0C53.0729 0 61.9205 2.87476 69.267 8.21227C76.6134 13.5498 82.0815 21.076 84.8876 29.7123L79.1623 31.5726C76.749 24.1454 72.0464 17.6728 65.7285 13.0826C59.4105 8.49229 51.8016 6.02 43.9922 6.02V0Z"
-                      fill="#8E6EF2"
-                    />
+                    <rect width="206" height="17" rx="2" fill="white" />
+                    <rect width="206" height="17" rx="2" fill="#E4E4E4" />
+                    <rect width="19" height="17" rx="2" fill="white" />
+                    <rect width="19" height="17" rx="2" fill="#8E6EF2" />
                   </svg>
-
-                  <div style={{ marginLeft: "16px" }}>
-                    <Typography variant="h2">
-                      <Link href="#" underline="none">
-                        10
-                      </Link>
-                      /28
-                    </Typography>
-                    <Typography variant="body3" gutterBottom>
-                      Backup Enabled VMs
-                    </Typography>
-                  </div>
-                </Box>
+                </div>
               </Grid>
               <Grid
                 className="align-items-start"
@@ -573,47 +534,29 @@ function VCenterListContainer() {
                 xs={3}
                 direction="column"
               >
-                <Box
-                  className="d-flex align-items-center"
-                  sx={{ marginLeft: "24px" }}
-                >
+                <div style={{ margin: "0 28px" }}>
+                  <Typography variant="h2" gutterBottom>
+                    <Link href="#" underline="none">
+                      20
+                    </Link>
+                    /28
+                  </Typography>
+                  <Typography variant="body3" gutterBottom>
+                    Backup Enabled VMs
+                  </Typography>
                   <svg
-                    width="88"
-                    height="86"
-                    viewBox="0 0 88 86"
+                    width="206"
+                    height="17"
+                    viewBox="0 0 206 17"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      d="M43.9922 0C67.7404 0 86.9922 19.2518 86.9922 43C86.9922 66.7482 67.7404 86 43.9922 86C20.2439 86 0.992188 66.7482 0.992188 43C0.992188 19.2518 20.2439 0 43.9922 0ZM43.9922 79.98C64.4157 79.98 80.9722 63.4235 80.9722 43C80.9722 22.5765 64.4157 6.02 43.9922 6.02C23.5687 6.02 7.01219 22.5765 7.01219 43C7.01219 63.4235 23.5687 79.98 43.9922 79.98Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M43.9922 0C67.7404 0 86.9922 19.2518 86.9922 43C86.9922 66.7482 67.7404 86 43.9922 86C20.2439 86 0.992188 66.7482 0.992188 43C0.992188 19.2518 20.2439 0 43.9922 0ZM43.9922 79.98C64.4157 79.98 80.9722 63.4235 80.9722 43C80.9722 22.5765 64.4157 6.02 43.9922 6.02C23.5687 6.02 7.01219 22.5765 7.01219 43C7.01219 63.4235 23.5687 79.98 43.9922 79.98Z"
-                      fill="#E4E4E4"
-                    />
-                    <path
-                      d="M43.9922 0C51.9223 0 59.6981 2.19298 66.4596 6.33647C73.2212 10.48 78.7052 16.4126 82.3055 23.4784C85.9057 30.5442 87.4818 38.468 86.8596 46.3737C86.2374 54.2795 83.4412 61.8591 78.7799 68.2748C74.1187 74.6904 67.7741 79.6921 60.4476 82.7268C53.1211 85.7616 45.098 86.7111 37.2655 85.4706C29.433 84.23 22.0961 80.8477 16.0659 75.6975C10.0358 70.5472 5.54731 63.8298 3.09676 56.2877L8.82212 54.4275C10.9296 60.9136 14.7897 66.6906 19.9756 71.1198C25.1615 75.549 31.4713 78.4578 38.2072 79.5247C44.9432 80.5916 51.843 79.7749 58.1438 77.1651C64.4446 74.5552 69.901 70.2537 73.9096 64.7363C77.9183 59.2189 80.3231 52.7003 80.8582 45.9014C81.3933 39.1025 80.0378 32.288 76.9416 26.2114C73.8454 20.1348 69.1291 15.0328 63.3142 11.4694C57.4992 7.90596 50.8121 6.02 43.9922 6.02V0Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M43.9922 0C51.9223 0 59.6981 2.19298 66.4596 6.33647C73.2212 10.48 78.7052 16.4126 82.3055 23.4784C85.9057 30.5442 87.4818 38.468 86.8596 46.3737C86.2374 54.2795 83.4412 61.8591 78.7799 68.2748C74.1187 74.6904 67.7741 79.6921 60.4476 82.7268C53.1211 85.7616 45.098 86.7111 37.2655 85.4706C29.433 84.23 22.0961 80.8477 16.0659 75.6975C10.0358 70.5472 5.54731 63.8298 3.09676 56.2877L8.82212 54.4275C10.9296 60.9136 14.7897 66.6906 19.9756 71.1198C25.1615 75.549 31.4713 78.4578 38.2072 79.5247C44.9432 80.5916 51.843 79.7749 58.1438 77.1651C64.4446 74.5552 69.901 70.2537 73.9096 64.7363C77.9183 59.2189 80.3231 52.7003 80.8582 45.9014C81.3933 39.1025 80.0378 32.288 76.9416 26.2114C73.8454 20.1348 69.1291 15.0328 63.3142 11.4694C57.4992 7.90596 50.8121 6.02 43.9922 6.02V0Z"
-                      fill="#8E6EF2"
-                    />
+                    <rect width="206" height="17" rx="2" fill="white" />
+                    <rect width="206" height="17" rx="2" fill="#E4E4E4" />
+                    <rect width="82" height="17" rx="2" fill="white" />
+                    <rect width="82" height="17" rx="2" fill="#8E6EF2" />
                   </svg>
-
-                  <div style={{ marginLeft: "16px" }}>
-                    <Typography variant="h2">
-                      <Link href="#" underline="none">
-                        20
-                      </Link>
-                      /28
-                    </Typography>
-                    <Typography variant="body3" gutterBottom>
-                      Backup Enabled VMs
-                    </Typography>
-                  </div>
-                </Box>
+                </div>
               </Grid>
               <Grid
                 className="align-items-start"
