@@ -1,0 +1,12 @@
+.listitem-card .MuiListItem-root {
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.card-style {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #d7d7d7;
+}

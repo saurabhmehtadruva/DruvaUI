@@ -1,0 +1,45 @@
+html .filter-popover-header {
+  /* background-color: #fff; */
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
+  font-size: 0.875rem;
+  margin-bottom: 0;
+  padding: 0.5rem 0.75rem;
+}
+html .filter-popover-body {
+  /* color: #212529; */
+  padding: 0.5rem 0.75rem;
+}
+
+.label-text {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+.filter-popOver .MuiPaper-root {
+  width: 100%;
+  max-width: 350px;
+}
+.filter-popOver {
+  box-shadow: 0 8px 12px 0 rgb(0 0 0 / 10%);
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 10px !important;
+  /* background: rgb(255, 255, 255); */
+  padding: 6px 0;
+}
+html .filter-popover-body .MuiSelect-select {
+  padding: 6px;
+}
+.arrow::before {
+  content: "";
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: auto;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-style: solid;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -13px;
+  background-color: white;
+}

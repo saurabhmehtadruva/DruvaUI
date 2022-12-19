@@ -1,0 +1,47 @@
+.oui-dot{
+width: 3.46px;
+height: 3px;
+background-color: #BDBCBC;
+border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 3px;
+}
+.oui-last7days{
+    color: #6C6A6A;
+    font-weight: 400;
+font-size: 10px;
+line-height: 140%;
+opacity: 0.8;
+}
+.oui-enabled {
+    font-weight: 400;
+    font-size: 12px;
+    color: #338357;
+    padding: 0px 8px;
+    width: fit-content;
+    height: 20px;
+    background: #EBF4EA;
+    border-radius: 4px;
+}
+.oui-disabled {
+    font-weight: 400;
+    font-size: 12px;
+    padding: px 8px;
+    color: #8A4040;
+    width: fit-content;
+    height: 20px;
+    background: #FBEDED;
+    border-radius: 4px;
+}
+.oui-blueDot {
+    background: #4339F2;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.oui-greenDot {
+    background: #14C9C9;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}

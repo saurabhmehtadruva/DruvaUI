@@ -1,0 +1,36 @@
+html .oui-moreMenu:hover {
+    height: 40px;
+    border-radius: 12px;
+}
+
+html .oui-moreButton:hover {
+    background: linear-gradient(0deg, #E4E4E4, #E4E4E4), #FFFFFF;
+    border-radius: 18px;
+}
+
+.oui-enableGrid {
+    font-weight: 500;
+    font-size: 12px;
+    padding: 2px 8px;
+    width: 54px;
+    height: 21px;
+    border-radius: 16px;
+}
+
+.oui-disableGrid {
+    font-weight: 500;
+    font-size: 12px;
+    padding: 2px 8px;
+    width: 58px;
+    height: 21px;
+    border-radius: 16px;
+}
+
+html .oui-policyGrid .MuiDataGrid-cell {
+    padding: 10px;
+    text-align: left;
+}
+
+.table-dropdown .MuiOutlinedInput-notchedOutline {
+    border: 0px !important;
+}

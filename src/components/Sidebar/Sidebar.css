@@ -1,0 +1,39 @@
+.oui-global-sidebar{
+    margin-top: 10px;
+}
+html .oui-logoMenu:hover {
+    height: 36px;
+    border-radius: 12px;
+}
+
+html .oui-svgIcon {
+    fill: #BDBCBC;
+}
+
+html .MuiListItemButton-root:hover .oui-svgIcon {
+    fill: #FFFFFF;
+}
+
+html .MuiListItemButton-root.Mui-selected .oui-svgIcon {
+    fill: #FF9549;
+}
+
+.oui-svglogo {
+    fill: #6C6A6A;
+}
+
+.oui-svgmenu {
+    stroke: #6C6A6A;
+}
+
+html .oui-logoMenu:hover > .oui-svglogo {
+    fill: #F8964F;
+}
+
+html .oui-logoMenu:hover > .oui-svgmenu {
+    stroke: #F8964F;
+}
+
+.oui-svgIconData {
+    fill: #FFFFFF;
+}

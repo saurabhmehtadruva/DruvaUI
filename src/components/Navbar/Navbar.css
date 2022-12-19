@@ -1,0 +1,105 @@
+.oui-profile-container {
+  border-bottom: 1px solid var(--headerbar-profile-menu-border-color);
+  display: flex;
+}
+
+.oui-profile-container .oui-profile-avatar {
+  align-items: center;
+  background: rgba(22, 145, 154, 1);
+  background: -webkit-gradient(
+    left top,
+    right bottom,
+    color-stop(0%, rgba(22, 145, 154, 1)),
+    color-stop(100%, rgba(93, 151, 50, 1))
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(22, 145, 154, 1) 0%,
+    rgba(93, 151, 50, 1) 100%
+  );
+  border-radius: 50%;
+  color: #fff;
+  display: inline-flex;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#16919a', endColorstr='#5d9732', GradientType=1);
+  font-weight: 300;
+  height: 64px;
+  justify-content: center;
+  margin: 1rem;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  width: 64px;
+}
+
+.oui-user-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
+}
+.oui-user-details .oui-profile-username {
+  color: #6c757d;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  max-width: 17.8rem;
+  text-transform: capitalize;
+}
+
+.oui-user-details .oui-profile-email {
+  color: #6c757d;
+  font-size: 0.875rem;
+  max-width: 17.8rem;
+}
+
+html .oui-auto-complete input {
+  padding-left: 32px !important;
+}
+.oui-auto-complete-navbar {
+  margin: 4px 4px 0 4px;
+}
+
+.oui-slash{
+  border: 0.5px solid #878686;
+  width: 16.6px;
+  transform: rotate(116.57deg);
+}
+
+.MuiDivider-root {
+  margin-left: -4px !important;
+  margin-right: -4px !important;
+}
+
+.oui-verticalSlash{
+ border: 0.5px solid #454242;
+}
+
+html .oui-SubHeaderWorkloadText {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.oui-WorkloadText {
+  
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.oui-WorkloadSubText {
+  color: #6C6A6A;
+  font-weight: 400;
+font-size: 10px;
+}
+
+.oui-hoverDisplay {
+  display: none;
+}
+
+.MuiButtonBase-root:hover .oui-hoverDisplay {
+  display: block;
+}
+
+html .MuiButtonBase-root:hover.oui-protectover {
+  border-radius: 4px;
+}

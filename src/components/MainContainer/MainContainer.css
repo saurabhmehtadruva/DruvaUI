@@ -1,0 +1,82 @@
+.oui-page-header {
+  align-items: center;
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+}
+html .oui-auto-complete .MuiOutlinedInput-root {
+  padding: 0;
+}
+.justifyContent {
+  justify-content: end;
+}
+
+@media only screen and (max-width: 600px) {
+  .justifyContent {
+    justify-content: start;
+  }
+}
+html .noMargin {
+  margin-right: 0 !important;
+}
+html .oui-searchBox .MuiOutlinedInput-root {
+  padding: 0px 9px;
+    height: 36px;
+}
+
+.oui-dialog .MuiDialog-paperFullWidth {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background: #F8F8F8;
+  border-radius: 12px 12px 0px 0px;
+  margin-top: 64px;
+}
+
+.oui-searchButton:hover {
+  background: linear-gradient(0deg, #E4E4E4, #E4E4E4), #FFFFFF;
+  border-radius: 20px;
+}
+
+.MuiStepConnector-line.Mui-completed {
+  color: #FFAC70 !important;
+}
+
+.form-grid.MuiGrid-spacing-xs-4 {
+  width: 100% !important;
+  padding: 0 100px !important;
+}
+
+.Mui-completed .MuiStepConnector-line {
+  border-top-width: 2px !important;
+  border-color: #FFAC70 !important;
+}
+
+.MuiStepConnector-line {
+  border-top-width: 2px !important;
+  border-color: #E2E2E2 !important;
+}
+
+.MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+  margin-top: 4px !important;
+  font-weight: 500 !important;
+  color: #383535 !important;
+}
+
+.MuiAutocomplete-root {
+  transition: width 500ms ease-out;
+}
+
+.MuiAutocomplete-root.initial .MuiOutlinedInput-notchedOutline {
+  border-width: 0px !important;
+}
+
+.MuiAutocomplete-root.initial .MuiTextField-root {
+  background: transparent !important;
+}
+
+.MuiAutocomplete-root.initial input {
+  opacity: 0 !important;
+}
