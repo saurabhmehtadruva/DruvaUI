@@ -959,9 +959,8 @@ function App() {
             }}
           >
             <InAppSidebar />
-          
               <Routes>
-                <Route exact key="1" path="/" element={<MainContainer />} />
+                <Route exact key="1" path="/" element={<VCenterListContainer />} />
                 <Route exact key="7" path="/configVM" element={<MainContainer />} />
                 <Route exact key="2" path="/backup-proxy" element={<BackupProxyContainer />} />
                 <Route exact key="3" path="/backup-policies" element={<BackupPoliciesContainer />} />
