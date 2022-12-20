@@ -152,7 +152,7 @@ const BackupProxyContainer = () => {
       </Box>
       <Box component="main" className="w-100">
         <div style={{ height: " calc(100vh - 181px)" }}>
-          <BackupPoliciesGrid />
+          <BackupPoliciesGrid newPolicy={policyName} />
         </div>
       </Box>
     </div>

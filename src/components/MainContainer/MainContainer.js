@@ -185,7 +185,7 @@ const resetFilters = () => {
       setShow((prev) => !prev);
       setTimeout(() => {
         setSwitchClass(false);
-      }, 100);
+      }, 400);
     }
   };
 
@@ -225,16 +225,15 @@ const resetFilters = () => {
               sx={{ width: show ? 250 : 96 }}
               className={switchClass ? "slide" : "initial"}
               onChange={(value) => handleSearch(value.target.innerText)}
-              value={tfValue}
+              value={searchValue}
               renderInput={(params) => (
                 <TextField
                   autoFocus = {show}
                   variant="outlined"
                   onBlur={() => onBlurSearch()}
                   className="oui-searchBox"
-                  onChange={(e) => setTfValue(e.target.value)}
                   {...params}
-                  value={tfValue}
+                  value={searchValue}
                   InputProps={{
                     ...params.InputProps,
                     placeholder: "Search",

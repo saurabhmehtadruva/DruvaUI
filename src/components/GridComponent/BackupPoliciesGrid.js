@@ -9,7 +9,8 @@ import RefreshSVG from "../../images/refresh.svg";
 import IconButton from "@mui/material/IconButton";
 import Checkbox from "./checkBox";
 import "./GridComponent.css";
-export default function ToolbarGrid() {
+
+export default function ToolbarGrid(props) {
   const [selection, setSelection] = React.useState([]);
   const rows = [
     {
@@ -23,7 +24,8 @@ export default function ToolbarGrid() {
     {
       id: "13bd2472-012c-5220-bb3c-5a8d7292e066",
       bp: "Policy 2",
-      version: "Wed from 06:00 AM for 7 hours. Bandwidth: 10 Mbps. Transaction Logs Backup: Every 10 mins.",
+      version:
+        "Wed from 06:00 AM for 7 hours. Bandwidth: 10 Mbps. Transaction Logs Backup: Every 10 mins.",
       time: "60D, 24W, 12M, 3Y",
       server: "Disable",
       pool: 3,
@@ -55,7 +57,8 @@ export default function ToolbarGrid() {
     {
       id: "9aa9859b-aaf1-5c1f-bcf8-bd9ea3d6538c",
       bp: "Policy 6",
-      version: "Wed from 06:00 AM for 7 hours. Bandwidth: 10 Mbps. Transaction Logs Backup: Every 10 mins.",
+      version:
+        "Wed from 06:00 AM for 7 hours. Bandwidth: 10 Mbps. Transaction Logs Backup: Every 10 mins.",
       time: "60D, 24W, 12M, 3Y",
       server: "Disable",
       pool: 3,
@@ -71,7 +74,8 @@ export default function ToolbarGrid() {
     {
       id: "0148cf1a-8cb9-5dd0-851a-75bafd939900",
       bp: "Policy 8",
-      version: "Wed from 06:00 AM for 7 hours. Bandwidth: 10 Mbps. Transaction Logs Backup: Every 10 mins.",
+      version:
+        "Wed from 06:00 AM for 7 hours. Bandwidth: 10 Mbps. Transaction Logs Backup: Every 10 mins.",
       time: "60D, 24W, 12M, 3Y",
       server: "Disable",
       pool: 3,
@@ -79,7 +83,8 @@ export default function ToolbarGrid() {
     {
       id: "76220b40-79db-51de-8711-81b4f55f1a3f",
       bp: "Policy 9",
-      version: "Wed from 06:00 AM for 7 hours. Bandwidth: 10 Mbps. Transaction Logs Backup: Every 10 mins.",
+      version:
+        "Wed from 06:00 AM for 7 hours. Bandwidth: 10 Mbps. Transaction Logs Backup: Every 10 mins.",
       time: "60D, 24W, 12M, 3Y",
       server: "Disable",
       pool: 3,
@@ -103,7 +108,7 @@ export default function ToolbarGrid() {
             {cellValues.formattedValue}
           </Link>
         );
-        },
+      },
     },
     {
       field: "version",
@@ -133,11 +138,19 @@ export default function ToolbarGrid() {
       flex: 0,
       renderCell: (cellValues) => {
         return (
-            <Box>
-            <span className={cellValues.formattedValue === "Enable" ? "oui-enableGrid" : "oui-disableGrid"}>{cellValues.formattedValue}</span>
+          <Box>
+            <span
+              className={
+                cellValues.formattedValue === "Enable"
+                  ? "oui-enableGrid"
+                  : "oui-disableGrid"
+              }
+            >
+              {cellValues.formattedValue}
+            </span>
           </Box>
         );
-        },
+      },
     },
     {
       field: "pool",
@@ -151,16 +164,36 @@ export default function ToolbarGrid() {
         );
       },
       editable: false,
-      type: 'number',
+      type: "number",
       flex: 0,
     },
   ];
+  const [policies, setPolicies] = React.useState(rows);
+  React.useEffect(() => {
+    if (props.newPolicy) {
+      let pol = rows;
+      pol.unshift({
+        id: "e5ec2d86-f16e-52f8-98f7-fd25fcf48sm1",
+        bp: props.newPolicy,
+        version: "Mon from 05:00 AM for 7 hours. Bandwidth: 100 Mbps",
+        time: "60D, 24W, 12M, 3Y",
+        server: "Enable",
+        pool: 6,
+      });
+      setPolicies(pol);
+    }
+  }, [props.newPolicy]);
   const customToolBar = () => {
     return (
       <GridToolbarContainer>
         <Box className="d-flex align-items-center w-100 px-2">
-          <Box sx={{ flexGrow: 1, height: "32px", }} className="d-flex me-5">
-            <Button disabled={!selection.length > 0} className="me-2" size="small" variant="outlined">
+          <Box sx={{ flexGrow: 1, height: "32px" }} className="d-flex me-5">
+            <Button
+              disabled={!selection.length > 0}
+              className="me-2"
+              size="small"
+              variant="outlined"
+            >
               Duplicate Policy
             </Button>
           </Box>
@@ -168,15 +201,19 @@ export default function ToolbarGrid() {
             sx={{ flexDirection: "row", flexGrow: 1 }}
             className="d-flex ms-4"
           >
-            {selection.length > 0 ? 
+            {selection.length > 0 ? (
               <>
                 <div>{selection.length} Selected</div>
               </>
-            : 
+            ) : (
               ""
-            }
-            <span className="pl-2 ml-2" style={{marginLeft: "4px"}}>Policies | </span>
-            <span className="fw-bold pe-1" style={{marginLeft: "4px"}}>{rows.length}</span>
+            )}
+            <span className="pl-2 ml-2" style={{ marginLeft: "4px" }}>
+              Policies |{" "}
+            </span>
+            <span className="fw-bold pe-1" style={{ marginLeft: "4px" }}>
+              {rows.length}
+            </span>
             <span className="pe-2"> of {rows.length}</span>
             <img src={RefreshSVG} alt="RefreshSVG" />
           </Box>
@@ -202,9 +239,9 @@ export default function ToolbarGrid() {
   return (
     <div style={{ height: "100%", width: "100%" }}>
       <DataGrid
-        rows={rows}
+        rows={policies}
         columns={columns}
-        pageSize={rows.length}
+        pageSize={policies.length}
         // rowsPerPageOptions={[rows.length]}
         hideFooter
         checkboxSelection
@@ -218,7 +255,7 @@ export default function ToolbarGrid() {
           setSelection(newSelectionModel);
         }}
         disableSelectionOnClick
-        getRowHeight={() => 'auto'}
+        getRowHeight={() => "auto"}
         className="oui-policyGrid"
       />
     </div>
